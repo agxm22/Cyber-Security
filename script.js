@@ -165,7 +165,7 @@ const emojiQuestions = [
     },
     {
         question: "Guess the cybersecurity term: 123 + tall",
-        correctAnswer: "Digital",
+        correctAnswer: "Digital ",
         wrongAnswers: ["Password Steps", "Number Trail", "Code Path"]
     },
     {
@@ -289,6 +289,117 @@ function showResults() {
 
 restartQuizBtn.addEventListener('click', startQuiz);
 
+// Password Puzzle Functionality
+const passwordDisplay = document.getElementById('passwordDisplay');
+const clueInputs = document.querySelectorAll('.clue-input');
+const checkPasswordBtn = document.getElementById('checkPassword');
+const resetPuzzleBtn = document.getElementById('resetPuzzle');
+const showHintBtn = document.getElementById('showHint');
+const puzzleFeedback = document.getElementById('puzzleFeedback');
+const puzzleHint = document.getElementById('puzzleHint');
+
+// Correct password: AF&9@gt
+const correctPassword = ['A', 'F', '&', '9', '@', 'G', 'T'];
+
+// Update password display when inputs change
+clueInputs.forEach(input => {
+    input.addEventListener('input', function() {
+        const index = parseInt(this.dataset.index);
+        const value = this.value.toUpperCase();
+        
+        // Update the password display
+        const passwordChars = passwordDisplay.querySelectorAll('.password-char');
+        if (value) {
+            passwordChars[index].textContent = value;
+            passwordChars[index].classList.add('filled');
+        } else {
+            passwordChars[index].textContent = '_';
+            passwordChars[index].classList.remove('filled');
+        }
+        
+        // Move to next input automatically
+        if (value && index < clueInputs.length - 1) {
+            clueInputs[index + 1].focus();
+        }
+    });
+    
+    // Allow only one character
+    input.addEventListener('keydown', function(e) {
+        if (this.value.length >= 1 && e.key !== 'Backspace' && e.key !== 'Delete') {
+            e.preventDefault();
+        }
+    });
+});
+
+// Check password function
+checkPasswordBtn.addEventListener('click', function() {
+    let userPassword = [];
+    let allFilled = true;
+    
+    clueInputs.forEach((input, index) => {
+        userPassword[index] = input.value.toUpperCase();
+        if (!input.value) {
+            allFilled = false;
+        }
+    });
+    
+    if (!allFilled) {
+        puzzleFeedback.textContent = "Please fill in all the clues before checking!";
+        puzzleFeedback.className = "puzzle-feedback error";
+        return;
+    }
+    
+    // Check if password is correct
+    let correctCount = 0;
+    userPassword.forEach((char, index) => {
+        if (char === correctPassword[index]) {
+            correctCount++;
+            clueInputs[index].classList.add('correct');
+            clueInputs[index].classList.remove('incorrect');
+        } else {
+            clueInputs[index].classList.add('incorrect');
+            clueInputs[index].classList.remove('correct');
+        }
+    });
+    
+    if (correctCount === correctPassword.length) {
+        puzzleFeedback.textContent = "Congratulations! You've cracked the password! 🎉";
+        puzzleFeedback.className = "puzzle-feedback success";
+        
+        // Add celebration effect
+        passwordDisplay.classList.add('success');
+        setTimeout(() => {
+            passwordDisplay.classList.remove('success');
+        }, 2000);
+    } else {
+        puzzleFeedback.textContent = `You have ${correctCount} out of 7 correct. Keep trying!`;
+        puzzleFeedback.className = "puzzle-feedback error";
+    }
+});
+
+// Reset puzzle function
+resetPuzzleBtn.addEventListener('click', function() {
+    clueInputs.forEach(input => {
+        input.value = '';
+        input.classList.remove('correct', 'incorrect');
+    });
+    
+    const passwordChars = passwordDisplay.querySelectorAll('.password-char');
+    passwordChars.forEach(char => {
+        char.textContent = '_';
+        char.classList.remove('filled');
+    });
+    
+    puzzleFeedback.textContent = "Enter your answers above and click 'Check Password' to verify!";
+    puzzleFeedback.className = "puzzle-feedback";
+    puzzleHint.style.display = 'none';
+});
+
+// Show hint function
+showHintBtn.addEventListener('click', function() {
+    puzzleHint.style.display = puzzleHint.style.display === 'none' ? 'block' : 'none';
+});
+
 // Smooth Scrolling for Anchor Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -322,22 +433,32 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe elements for animation
-document.querySelectorAll('.principle-card, .protection-item, .role-card, .resource-category').forEach(el => {
+document.querySelectorAll('.principle-card, .protection-item, .role-card, .resource-category, .clue-item').forEach(el => {
     observer.observe(el);
 });
 
 // Add animation class to CSS
 const style = document.createElement('style');
 style.textContent = `
-    .principle-card, .protection-item, .role-card, .resource-category {
+    .principle-card, .protection-item, .role-card, .resource-category, .clue-item {
         opacity: 0;
         transform: translateY(20px);
         transition: opacity 0.5s, transform 0.5s;
     }
     
-    .principle-card.animate-in, .protection-item.animate-in, .role-card.animate-in, .resource-category.animate-in {
+    .principle-card.animate-in, .protection-item.animate-in, .role-card.animate-in, .resource-category.animate-in, .clue-item.animate-in {
         opacity: 1;
         transform: translateY(0);
     }
+    
+    .password-display.success .password-char {
+        animation: celebrate 0.5s ease-in-out;
+    }
+    
+    @keyframes celebrate {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+        100% { transform: scale(1); }
+    }
 `;
-document.head.appendChild(style); 
+document.head.appendChild(style);
