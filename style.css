@@ -562,10 +562,199 @@ header {
     margin-bottom: 0.5rem;
 }
 
+/* Password Puzzle Section */
+.password-puzzle {
+    padding: 100px 0;
+    background: var(--secondary-bg);
+}
+
+.puzzle-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.puzzle-intro {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.puzzle-intro p {
+    font-size: 1.2rem;
+}
+
+.password-box {
+    background: var(--card-bg);
+    border: 2px solid var(--accent-color);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(255, 42, 109, 0.2);
+}
+
+.password-display {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-family: 'Courier New', monospace;
+}
+
+.password-char {
+    width: 50px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    transition: all 0.3s;
+}
+
+.password-char.filled {
+    border-color: var(--accent-color);
+    background: rgba(255, 42, 109, 0.1);
+    box-shadow: 0 5px 15px rgba(255, 42, 109, 0.2);
+}
+
+.clues-container {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+.clues-container h3 {
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.clues-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.clue-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--primary-bg);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s;
+}
+
+.clue-item:hover {
+    border-color: var(--accent-color);
+    transform: translateX(5px);
+}
+
+.clue-number {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-color);
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.clue-item p {
+    flex: 1;
+    margin: 0;
+    color: var(--text-primary);
+}
+
+.clue-input {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: var(--secondary-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    transition: all 0.3s;
+    text-transform: uppercase;
+}
+
+.clue-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(255, 42, 109, 0.3);
+}
+
+.clue-input.correct {
+    border-color: #00ff00;
+    background: rgba(0, 255, 0, 0.1);
+}
+
+.clue-input.incorrect {
+    border-color: #ff0000;
+    background: rgba(255, 0, 0, 0.1);
+}
+
+.puzzle-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.puzzle-feedback {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--card-bg);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 1rem;
+}
+
+.puzzle-feedback p {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.puzzle-feedback.success {
+    border-color: #00ff00;
+    background: rgba(0, 255, 0, 0.1);
+    color: #00ff00;
+}
+
+.puzzle-feedback.error {
+    border-color: #ff0000;
+    background: rgba(255, 0, 0, 0.1);
+    color: #ff0000;
+}
+
+.puzzle-hint {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid var(--accent-color);
+}
+
+.puzzle-hint h4 {
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
 /* Resources Section */
 .resources {
     padding: 100px 0;
-    background: var(--secondary-bg);
+    background: var(--primary-bg);
 }
 
 .resources-content {
@@ -748,6 +937,79 @@ footer {
     margin-bottom: 1.5rem;
 }
 
+/* Quiz Info */
+.quiz-info {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(255, 42, 109, 0.1);
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.quiz-info p {
+    margin: 0;
+    color: var(--text-primary);
+    font-style: italic;
+}
+
+/* Emoji Questions */
+#question {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    text-align: center;
+    line-height: 1.5;
+}
+
+.option {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 12px;
+    background: var(--secondary-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.option:hover {
+    background: rgba(255, 42, 109, 0.1);
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.option.selected {
+    background: rgba(255, 42, 109, 0.2);
+    border-color: var(--accent-color);
+    box-shadow: 0 4px 12px rgba(255, 42, 109, 0.2);
+}
+
+#nextQuestion {
+    margin-top: 1.5rem;
+    width: 100%;
+}
+
+/* Quiz Results */
+#quizResult {
+    text-align: center;
+    padding: 1rem;
+}
+
+#scoreText {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+#restartQuiz {
+    margin-top: 1rem;
+}
+
 /* Responsive Design */
 @media (max-width: 992px) {
     .hero .container, .fundamentals-content, .careers-content {
@@ -769,6 +1031,16 @@ footer {
     
     .footer-content {
         flex-direction: column;
+        text-align: center;
+    }
+    
+    .clue-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .clue-item p {
         text-align: center;
     }
 }
@@ -829,5 +1101,25 @@ footer {
     
     .resources-content {
         grid-template-columns: 1fr;
+    }
+    
+    .password-display {
+        gap: 8px;
+    }
+    
+    .password-char {
+        width: 35px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+    
+    .puzzle-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .puzzle-controls button {
+        width: 100%;
+        max-width: 200px;
     }
 }
