@@ -77,7 +77,18 @@ const nextQuestionBtn = document.getElementById('nextQuestion');
 const scoreText = document.getElementById('scoreText');
 const restartQuizBtn = document.getElementById('restartQuiz');
 
-const quizQuestions = [
+// Fisher-Yates shuffle algorithm
+function shuffleArray(array) {
+    const newArray = [...array];
+    for (let i = newArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+    }
+    return newArray;
+}
+
+// Original questions with correct answers
+const originalQuestions = [
     {
         question: "What is the primary goal of cybersecurity?",
         options: [
@@ -129,6 +140,55 @@ const quizQuestions = [
         correct: 2
     }
 ];
+
+// Emoji questions with correct answers (will be shuffled)
+const emojiQuestions = [
+    {
+        question: "Guess the cybersecurity term: 😮‍💨 + ber + 🐂 + e",
+        correctAnswer: "Cyber Bully",
+        wrongAnswers: ["Cyber Security", "Cyber Attack", "Cyber Crime"]
+    },
+    {
+        question: "Guess the cybersecurity term: 🔥 + 🧱",
+        correctAnswer: "Firewall",
+        wrongAnswers: ["Heat Shield", "Brick Security", "Burn Protection"]
+    },
+    {
+        question: "Guess the cybersecurity term: 🚤 + 🥅",
+        correctAnswer: "Botnet",
+        wrongAnswers: ["Boat Net", "Network Ship", "Fishing Net"]
+    },
+    {
+        question: "Guess the cybersecurity term: 🌑 + 🕸",
+        correctAnswer: "Dark Web",
+        wrongAnswers: ["Night Spider", "Black Net", "Shadow Network"]
+    },
+    {
+        question: "Guess the cybersecurity term: 123 + tall",
+        correctAnswer: "Digital",
+        wrongAnswers: ["Password Steps", "Number Trail", "Code Path"]
+    },
+    {
+        question: "Guess the cybersecurity term: 🐜 + e + virus",
+        correctAnswer: "Antivirus",
+        wrongAnswers: ["Ant Software", "Bug Protection", "Insect Security"]
+    }
+];
+
+// Create shuffled emoji questions
+const shuffledEmojiQuestions = emojiQuestions.map(question => {
+    const allOptions = shuffleArray([question.correctAnswer, ...question.wrongAnswers]);
+    const correctIndex = allOptions.indexOf(question.correctAnswer);
+    
+    return {
+        question: question.question,
+        options: allOptions,
+        correct: correctIndex
+    };
+});
+
+// Combine all questions
+const quizQuestions = [...originalQuestions, ...shuffledEmojiQuestions];
 
 let currentQuestion = 0;
 let score = 0;
@@ -280,4 +340,4 @@ style.textContent = `
         transform: translateY(0);
     }
 `;
-document.head.appendChild(style);
+document.head.appendChild(style); 
