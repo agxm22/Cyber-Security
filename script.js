@@ -466,3 +466,229 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.principle-card, .protection-item, .role-card, .resource-category, .clue-item').forEach(el => {
     observer.observe(el);
 });
+
+// Cyber Security Marquee Functionality - Thinner & Hide on Scroll
+document.addEventListener('DOMContentLoaded', function() {
+    const marqueeContainer = document.querySelector('.cyber-marquee-container');
+    const marqueeContent = document.querySelector('.marquee-content');
+    const alertItems = document.querySelectorAll('.alert-item');
+    
+    // Scroll hide/show variables
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+    const scrollThreshold = 100; // Scroll distance before hiding
+    let isHidden = false;
+    
+    // Function to handle scroll events
+    function handleScroll() {
+        const currentScrollY = window.scrollY;
+        const scrollDelta = currentScrollY - lastScrollY;
+        
+        // Hide marquee when scrolling down past threshold
+        if (scrollDelta > 0 && currentScrollY > scrollThreshold && !isHidden) {
+            marqueeContainer.classList.add('hidden');
+            isHidden = true;
+        } 
+        // Show marquee when scrolling up
+        else if (scrollDelta < 0 && isHidden) {
+            marqueeContainer.classList.remove('hidden');
+            isHidden = false;
+        }
+        // Show marquee when at top of page
+        else if (currentScrollY <= scrollThreshold && isHidden) {
+            marqueeContainer.classList.remove('hidden');
+            isHidden = false;
+        }
+        
+        lastScrollY = currentScrollY;
+        ticking = false;
+    }
+    
+    // Throttled scroll event listener
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            requestAnimationFrame(handleScroll);
+            ticking = true;
+        }
+    });
+    
+    // Function to optimize marquee speed based on content
+    function optimizeMarqueeSpeed() {
+        const contentWidth = marqueeContent.scrollWidth;
+        const containerWidth = document.querySelector('.cyber-marquee').offsetWidth;
+        const totalDistance = contentWidth / 2;
+        
+        // Calculate optimal speed - faster base speed for thinner design
+        const baseSpeed = 20;
+        const optimalSpeed = (totalDistance / containerWidth) * baseSpeed;
+        
+        // Ensure minimum and maximum speed limits
+        const minSpeed = 15;
+        const maxSpeed = 25;
+        const finalSpeed = Math.max(minSpeed, Math.min(optimalSpeed, maxSpeed));
+        
+        marqueeContent.style.animationDuration = `${finalSpeed}s`;
+    }
+    
+    // Function to create cyber glow effect
+    function createCyberGlow() {
+        alertItems.forEach((item, index) => {
+            if (item.textContent.includes('ALERT')) {
+                item.style.boxShadow = '0 0 6px rgba(255, 42, 109, 0.4)';
+            } else if (item.textContent.includes('WARNING')) {
+                item.style.boxShadow = '0 0 6px rgba(255, 165, 0, 0.4)';
+            } else if (item.textContent.includes('TIP') || item.textContent.includes('BEST PRACTICE')) {
+                item.style.boxShadow = '0 0 6px rgba(0, 255, 255, 0.4)';
+            }
+        });
+    }
+    
+    // Function to handle click events on alert items
+    function setupAlertInteractions() {
+        alertItems.forEach(item => {
+            item.addEventListener('click', function() {
+                // Only create ripple if marquee is visible
+                if (!isHidden) {
+                    const ripple = document.createElement('span');
+                    ripple.style.cssText = `
+                        position: absolute;
+                        border-radius: 50%;
+                        background: rgba(255, 42, 109, 0.6);
+                        transform: scale(0);
+                        animation: ripple 0.6s linear;
+                        pointer-events: none;
+                    `;
+                    
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = event.clientX - rect.left - size / 2;
+                    const y = event.clientY - rect.top - size / 2;
+                    
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    
+                    this.style.position = 'relative';
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                    
+                    const alertText = this.querySelector('strong').textContent;
+                    console.log(`Alert clicked: ${alertText}`);
+                }
+            });
+        });
+    }
+    
+    // Function to ensure perfect seamless loop
+    function ensureSeamlessLoop() {
+        console.log('Thinner marquee with seamless loop initialized');
+    }
+    
+    // Function to add random security alerts
+    function addRandomAlert() {
+        const randomAlerts = [
+            {
+                icon: '🔍',
+                type: 'MONITORING',
+                message: 'Network traffic monitoring active'
+            },
+            {
+                icon: '📊',
+                type: 'STATUS',
+                message: 'Security systems operating normally'
+            },
+            {
+                icon: '⚡',
+                type: 'UPDATE',
+                message: 'Firewall rules updated successfully'
+            },
+            {
+                icon: '🔄',
+                type: 'SCAN',
+                message: 'System vulnerability scan in progress'
+            }
+        ];
+        
+        const randomAlert = randomAlerts[Math.floor(Math.random() * randomAlerts.length)];
+        
+        const newAlert = document.createElement('span');
+        newAlert.className = 'alert-item';
+        newAlert.innerHTML = `
+            <span class="alert-icon">${randomAlert.icon}</span>
+            <strong>${randomAlert.type}:</strong> ${randomAlert.message}
+        `;
+        
+        const firstHalf = marqueeContent.firstElementChild;
+        marqueeContent.insertBefore(newAlert.cloneNode(true), firstHalf);
+        marqueeContent.appendChild(newAlert);
+        
+        setTimeout(optimizeMarqueeSpeed, 100);
+    }
+    
+    // Add CSS for ripple animation and performance
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes ripple {
+            to {
+                transform: scale(3);
+                opacity: 0;
+            }
+        }
+        
+        /* Performance optimizations for thinner marquee */
+        .cyber-marquee-container {
+            transform: translateZ(0);
+        }
+        
+        .marquee-content {
+            backface-visibility: hidden;
+            perspective: 1000px;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Initialize marquee functionality
+    createCyberGlow();
+    setupAlertInteractions();
+    ensureSeamlessLoop();
+    optimizeMarqueeSpeed();
+    
+    // Performance monitoring
+    marqueeContent.addEventListener('animationiteration', () => {
+        console.log('Thinner marquee loop completed');
+    });
+    
+    // Add random alerts every 30 seconds
+    setInterval(addRandomAlert, 30000);
+    
+    // Pause on hover (only when visible)
+    marqueeContent.addEventListener('mouseenter', function() {
+        if (!isHidden) {
+            this.style.animationPlayState = 'paused';
+        }
+    });
+    
+    marqueeContent.addEventListener('mouseleave', function() {
+        if (!isHidden) {
+            this.style.animationPlayState = 'running';
+        }
+    });
+    
+    // Handle window resize
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(optimizeMarqueeSpeed, 250);
+    });
+    
+    console.log('Thinner Cyber Security Marquee initialized with scroll hide functionality!');
+});
+
+// Function to manually show/hide marquee for testing
+function toggleMarqueeVisibility() {
+    const marqueeContainer = document.querySelector('.cyber-marquee-container');
+    marqueeContainer.classList.toggle('hidden');
+}
