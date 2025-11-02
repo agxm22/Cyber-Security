@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSecurity 101 | Educational Resource</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <h2>Cyber<span>Security</span> 101</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#fundamentals">Fundamentals</a></li>
+                    <li><a href="#threats">Cyber Threats</a></li>
+                    <li><a href="#protection">Protection</a></li>
+                    <li><a href="#small-habits">Small Habits</a></li>
+                    <li><a href="#cyber-awareness">Cyber Awareness</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                    <li><a href="#password-puzzle">Password Puzzle</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+     <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Understanding <span class="highlight">Cyber Security</span></h1>
+                <p>A Cybercrime is a criminal activity that targets or uses a computer, 
+        network, or digital device to commit illegal acts like fraud, data 
+        theft, or harassment.<br><br>
+        
+        Cyber criminal is a person who uses his skills in technology to do 
+        malicious acts and illegal activities known as cybercrimes. They can be 
+        individuals or teams.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" id="startLearning">Start Learning</button>
+                    <button class="btn-secondary" id="quizMe">Quick Quiz</button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="cyber-shield">
+                    <div class="shield-core"></div>
+                    <div class="shield-ring ring-1"></div>
+                    <div class="shield-ring ring-2"></div>
+                    <div class="shield-ring ring-3"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fundamentals Section -->
+    <section id="fundamentals" class="fundamentals">
+        <div class="container">
+            <h2 class="section-title">Cyber Security Fundamentals</h2>
+            <div class="fundamentals-content">
+                <div class="fundamentals-text">
+                    <p>Cybersecurity refers to the practice of protecting systems, networks, and programs from digital
+                        attacks. These cyberattacks are typically aimed at accessing, changing, or destroying sensitive
+                        information; extorting money from users; or interrupting normal business processes.</p>
+
+                    <div class="key-principles">
+                        <h3>Key Principles of Cybersecurity</h3>
+                        <div class="principles-grid">
+                            <div class="principle-card">
+                                <div class="principle-icon">🔐</div>
+                                <h4>Confidentiality</h4>
+                                <p>Ensuring that information is accessible only to those authorized to have access</p>
+                            </div>
+                            <div class="principle-card">
+                                <div class="principle-icon">⚖️</div>
+                                <h4>Integrity</h4>
+                                <p>Safeguarding the accuracy and completeness of information and processing methods</p>
+                            </div>
+                            <div class="principle-card">
+                                <div class="principle-icon">🔄</div>
+                                <h4>Availability</h4>
+                                <p>Ensuring that authorized users have access to information and associated assets when
+                                    required</p>
+                            </div>
+                            <div class="principle-card">
+                                <div class="principle-icon">🐱‍💻</div>
+                                <h4>Using VPN</h4>
+                                <p>Protects your online activity by encrypting data and hiding your IP address,
+                                    ensuring privacy and security while browsing.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fundamentals-visual">
+                    <div class="cyber-cube">
+                        <div class="cube-face front"></div>
+                        <div class="cube-face back"></div>
+                        <div class="cube-face right"></div>
+                        <div class="cube-face left"></div>
+                        <div class="cube-face top"></div>
+                        <div class="cube-face bottom"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Threats Section -->
+    <section id="threats" class="threats">
+        <div class="container">
+            <h2 class="section-title">Common Cyber Threats</h2>
+            <div class="threats-container">
+                <div class="threat-tabs">
+                    <button class="threat-tab active" data-tab="malware">Malware</button>
+                    <button class="threat-tab" data-tab="phishing">Phishing</button>
+                    <button class="threat-tab" data-tab="ransomware">Ransomware</button>
+                    <button class="threat-tab" data-tab="ddos">DDoS Attacks</button>
+                    <button class="threat-tab" data-tab="social">Social Engineering</button>
+                </div>
+                <div class="threat-content">
+                    <div class="threat-panel active" id="malware">
+                        <h3>Malware</h3>
+                        <p>Malicious software designed to harm or exploit any programmable device, service, or network. Cybercriminals use malware to extract data they can leverage over victims for financial gain.</p>
+                        <div class="threat-types">
+                            <h4>Common Types:</h4>
+                            <ul>
+                                <li><strong>Viruses:</strong> Self-replicating malware that attaches to clean files</li>
+                                <li><strong>Worms:</strong> Standalone malware that replicates itself to spread to other computers</li>
+                                <li><strong>Trojans:</strong> Disguised as legitimate software to trick users</li>
+                                <li><strong>Spyware:</strong> Secretly records user activities</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="threat-panel" id="phishing">
+                        <h3>Phishing</h3>
+                        <p>A type of social engineering attack often used to steal user data, including login credentials and credit card numbers. It occurs when an attacker, masquerading as a trusted entity, tricks a victim into opening an email, instant message, or text message.</p>
+                        <div class="threat-types">
+                            <h4>Common Techniques:</h4>
+                            <ul>
+                                <li><strong>Email Phishing:</strong> Mass-mailed fraudulent messages</li>
+                                <li><strong>Spear Phishing:</strong> Targeted attacks on specific individuals</li>
+                                <li><strong>Whaling:</strong> Targeting high-profile individuals like executives</li>
+                                <li><strong>Smishing/Vishing:</strong> Phishing via SMS or voice calls</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="threat-panel" id="ransomware">
+                        <h3>Ransomware</h3>
+                        <p>A type of malware that threatens to publish the victim's data or perpetually block access to it unless a ransom is paid. While some simple ransomware may lock the system, more advanced malware encrypts the victim's files.</p>
+                        <div class="threat-types">
+                            <h4>Protection Strategies:</h4>
+                            <ul>
+                                <li>Regularly back up important data</li>
+                                <li>Keep all software updated</li>
+                                <li>Use reputable security software</li>
+                                <li>Educate users about suspicious emails</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="threat-panel" id="ddos">
+                        <h3>DDoS Attacks</h3>
+                        <p>Distributed Denial of Service attacks target websites and online services. The aim is to overwhelm them with more traffic than the server or network can accommodate, making the website or service inoperable.</p>
+                        <div class="threat-types">
+                            <h4>Attack Types:</h4>
+                            <ul>
+                                <li><strong>Volume-based attacks:</strong> Overwhelm bandwidth</li>
+                                <li><strong>Protocol attacks:</strong> Exploit server resources</li>
+                                <li><strong>Application layer attacks:</strong> Target web applications</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="threat-panel" id="social">
+                        <h3>Social Engineering</h3>
+                        <p>Psychological manipulation of people into performing actions or divulging confidential information. Unlike traditional hacking, social engineering relies heavily on human interaction and often involves tricking people into breaking normal security procedures.</p>
+                        <div class="threat-types">
+                            <h4>Common Forms:</h4>
+                            <ul>
+                                <li><strong>Pretexting:</strong> Creating a fabricated scenario</li>
+                                <li><strong>Baiting:</strong> Offering something enticing to victims</li>
+                                <li><strong>Quid pro quo:</strong> Requesting personal information in exchange for something</li>
+                                <li><strong>Tailgating:</strong> Unauthorized physical access to restricted areas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Protection Section -->
+    <section id="protection" class="protection">
+        <div class="container">
+            <h2 class="section-title">Cyber Protection Basics</h2>
+            <div class="protection-content">
+                <div class="protection-item">
+                    <div class="protection-icon">🔑</div>
+                    <div class="protection-text">
+                        <h3>Strong Passwords</h3>
+                        <p>Use complex, unique passwords for different accounts and enable two-factor authentication
+                            whenever possible.</p>
+                    </div>
+                </div>
+                <div class="protection-item">
+                    <div class="protection-icon">🔄</div>
+                    <div class="protection-text">
+                        <h3>Regular Updates</h3>
+                        <p>Keep all software, especially operating systems and security applications, updated with the
+                            latest patches.</p>
+                    </div>
+                </div>
+                <div class="protection-item">
+                    <div class="protection-icon">📧</div>
+                    <div class="protection-text">
+                        <h3>Email Vigilance</h3>
+                        <p>Be cautious with email attachments and links, especially from unknown senders or unexpected
+                            sources.</p>
+                    </div>
+                </div>
+                <div class="protection-item">
+                    <div class="protection-icon">💾</div>
+                    <div class="protection-text">
+                        <h3>Data Backup</h3>
+                        <p>Regularly back up important data to external drives or cloud services to prevent loss from ransomware or hardware failure.</p>
+                    </div>
+                </div>
+                <div class="protection-item">
+                    <div class="protection-icon">☁️</div>
+                    <div class="protection-text">
+                        <h3>Using Cloud Data Backups</h3>
+                        <p>Install trusted antivirus software to detect and block malicious threats, and enable firewalls to monitor and control incoming and outgoing network traffic for added protection.</p>
+                    </div>
+                </div>
+                <div class="protection-item">
+                    <div class="protection-icon">🛡️</div>
+                    <div class="protection-text">
+                        <h3>Use Antivirus and Firewalls</h3>
+                        <p>Regularly back up important data to external drives or cloud services to prevent loss from ransomware or hardware failure.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="protection-tip">
+                <h3>Did You Know?</h3>
+                <p id="cyberTip">Over 90% of successful cyberattacks start with a phishing email.</p>
+                <button id="newTip" class="btn-secondary">Show Another Tip</button>
+            </div>
+        </div>
+    </section>
+
+  
+    <!-- Small Habits Section -->
+  <section id="small-habits" class="small-habits">
+    <div class="container">
+        <h2 class="section-title">Small Habits - Big Preventions</h2>
+        <div class="habits-container">
+            <div class="habits-intro">
+                <p>Discover how small daily habits can lead to significant cybersecurity protection. Match the habits with their prevention benefits!</p>
+            </div>
+
+            <div class="habits-grid">
+                <a href="keep_secure.html" class="habit-card" data-habit="keep-secure">
+                    <div class="habit-icon">🔒</div>
+                    <h3>Keep Secure</h3>
+                </a>
+
+                <a href="account.html" class="habit-card" data-habit="account">
+                    <div class="habit-icon">👤</div>
+                    <h3>Account</h3>
+                </a>
+
+                <a href="apply_data.html" class="habit-card" data-habit="apply-data">
+                    <div class="habit-icon">📊</div>
+                    <h3>Apply Data</h3>
+                </a>
+
+                <a href="protection.html" class="habit-card" data-habit="protection">
+                    <div class="habit-icon">🛡️</div>
+                    <h3>Protection</h3>
+                </a>
+
+                <a href="cyber.html" class="habit-card" data-habit="cyber">
+                    <div class="habit-icon">🌐</div>
+                    <h3>Cyber</h3>
+                </a>
+
+                <a href="network.html" class="habit-card" data-habit="network">
+                    <div class="habit-icon">📡</div>
+                    <h3>Network</h3>
+                </a>
+
+                <a href="Security.html" class="habit-card" data-habit="security">
+                    <div class="habit-icon">🔐</div>
+                    <h3>Security</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Cyber Awareness Section -->
+    <section id="cyber-awareness" class="cyber-awareness">
+        <div class="container">
+            <h2 class="section-title">Cyber Awareness</h2>
+            <div class="awareness-content">
+                <div class="awareness-intro">
+                    <p>Such workshops are important to aware students about cyber bullying and ethics of social media. Educating the younger generation about digital safety and responsible online behavior is crucial in today's interconnected world.</p>
+                </div>
+                
+                <div class="photo-collage">
+                    <div class="collage-row">
+                        <div class="photo-item large">
+                            <img src="2.jpg" alt="Cyber Security Workshop" class="collage-img">
+                            <div class="photo-overlay">
+                                <h4>Cyber Security Workshop</h4>
+                                <p>Students learning about online safety</p>
+                            </div>
+                        </div>
+                        <div class="photo-item medium">
+                            <img src="1 (1).jpg" alt="Digital Ethics Training" class="collage-img">
+                            <div class="photo-overlay">
+                                <h4>Digital Ethics</h4>
+                                <p>Understanding social media responsibility</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="collage-row">
+                        <div class="photo-item small">
+                            <img src="4.jpg" alt="Anti-Bullying Session" class="collage-img">
+                            <div class="photo-overlay">
+                                <h4>Anti-Bullying</h4>
+                                <p>Combating cyber bullying</p>
+                            </div>
+                        </div>
+                        <div class="awareness-text">
+                            <h3>Why Cyber Awareness Matters</h3>
+                            <p>Cyber awareness workshops play a vital role in protecting students from online threats and teaching them responsible digital citizenship.</p>
+                            <ul>
+                                <li>Prevents cyber bullying incidents</li>
+                                <li>Teaches social media ethics</li>
+                                <li>Promotes digital literacy</li>
+                                <li>Builds safe online communities</li>
+                                <li>Empowers students to report abuse</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="awareness-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">68%</div>
+                        <div class="stat-text">of students experienced cyber bullying</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">42%</div>
+                        <div class="stat-text">increase in awareness after workshops</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">85%</div>
+                        <div class="stat-text">better understanding of digital ethics</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Careers Section -->
+    <section id="careers" class="careers">
+        <div class="container">
+            <h2 class="section-title">Cyber Security Careers</h2>
+            <div class="careers-content">
+                <div class="career-path">
+                    <h3>Educational Pathways</h3>
+                    <p>Cybersecurity professionals come from diverse educational backgrounds. Common paths include:</p>
+                    <ul>
+                        <li>Computer Science degrees</li>
+                        <li>Information Technology programs</li>
+                        <li>Cybersecurity-specific degrees</li>
+                        <li>Bootcamps and certifications</li>
+                    </ul>
+                </div>
+                <div class="career-roles">
+                    <h3>Common Roles</h3>
+                    <div class="roles-grid">
+                        <div class="role-card">
+                            <h4>Security Analyst</h4>
+                            <p>Monitors networks for security breaches and investigates violations</p>
+                        </div>
+                        <div class="role-card">
+                            <h4>Ethical Hacker</h4>
+                            <p>Legally penetrates systems to find vulnerabilities</p>
+                        </div>
+                        <div class="role-card">
+                            <h4>Security Architect</h4>
+                            <p>Designs and builds secure network systems</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Password Puzzle Section -->
+    <section id="password-puzzle" class="password-puzzle">
+        <div class="container">
+            <h2 class="section-title">Guess the Hidden Password</h2>
+            <div class="puzzle-container">
+                <div class="puzzle-intro">
+                    <p>Can you crack this cybersecurity-themed password puzzle? Solve the clues to reveal the 7-symbol password!</p>
+                </div>
+                
+                <div class="password-box">
+                    <div class="password-display" id="passwordDisplay">
+                        <span class="password-char">_</span>
+                        <span class="password-char">_</span>
+                        <span class="password-char">_</span>
+                        <span class="password-char">_</span>
+                        <span class="password-char">_</span>
+                        <span class="password-char">_</span>
+                        <span class="password-char">_</span>
+                    </div>
+                </div>
+                
+                <div class="clues-container">
+                    <h3>Clues:</h3>
+                    <div class="clues-list">
+                        <div class="clue-item">
+                            <span class="clue-number">1</span>
+                            <p>The first letter a kid learns in the school.</p>
+                            <input type="text" class="clue-input" maxlength="1" data-index="0">
+                        </div>
+                        <div class="clue-item">
+                            <span class="clue-number">2</span>
+                            <p>Its only capital letter in France.</p>
+                            <input type="text" class="clue-input" maxlength="1" data-index="1">
+                        </div>
+                        <div class="clue-item">
+                            <span class="clue-number">3</span>
+                            <p>Its short hand symbol for word and.</p>
+                            <input type="text" class="clue-input" maxlength="1" data-index="2">
+                        </div>
+                        <div class="clue-item">
+                            <span class="clue-number">4</span>
+                            <p>If two's company and three's a crowd, what are four and five?</p>
+                            <input type="text" class="clue-input" maxlength="1" data-index="3">
+                        </div>
+                        <div class="clue-item">
+                            <span class="clue-number">5</span>
+                            <p>No email ID is complete without me.</p>
+                            <input type="text" class="clue-input" maxlength="1" data-index="4">
+                        </div>
+                        <div class="clue-item">
+                            <span class="clue-number">6</span>
+                            <p>What is end of everything?</p>
+                            <input type="text" class="clue-input" maxlength="1" data-index="5">
+                        </div>
+                        <div class="clue-item">
+                            <span class="clue-number">7</span>
+                            <p>I am a small letter and a drink made of three letters.</p>
+                            <input type="text" class="clue-input" maxlength="1" data-index="6">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="puzzle-controls">
+                    <button id="checkPassword" class="btn-primary">Check Password</button>
+                    <button id="resetPuzzle" class="btn-secondary">Reset</button>
+                    <button id="showHint" class="btn-secondary">Hint</button>
+                </div>
+                
+                <div class="puzzle-feedback" id="puzzleFeedback">
+                    <p>Enter your answers above and click "Check Password" to verify!</p>
+                </div>
+                
+                <div class="puzzle-hint" id="puzzleHint" style="display: none;">
+                    <h4>Hint:</h4>
+                    <p>Think about common symbols, letters, and numbers that fit each description. The password follows the pattern: Letter, Letter, Symbol, Number, Symbol, Letter, Letter</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Cyber<span>Security</span> 101</h3>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#fundamentals">Fundamentals</a></li>
+                        <li><a href="#threats">Cyber Threats</a></li>
+                        <li><a href="#protection">Protection</a></li>
+                        <li><a href="#small-habits">Small Habits</a></li>
+                        <li><a href="#cyber-awareness">Cyber Awareness</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#password-puzzle">Password Puzzle</a></li>
+                    </ul>
+                </div>
+                <div class="footer-about">
+                    <h4>About This Project</h4>
+                    <p>This website was created as a college project to educate about cybersecurity fundamentals and best practices.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; Made By Agam Sehgal And Priyanshu</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quiz Modal -->
+    <div id="quizModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Cyber Security Knowledge Check</h2>
+            <div class="quiz-info">
+                <p>Test your cybersecurity knowledge with these multiple-choice questions, including fun emoji puzzles!</p>
+            </div>
+            <div id="quizContainer">
+                <div id="question"></div>
+                <div id="options"></div>
+                <button id="nextQuestion" class="btn-primary">Next Question</button>
+            </div>
+            <div id="quizResult" style="display: none;">
+                <h3>Quiz Complete!</h3>
+                <p id="scoreText"></p>
+                <button id="restartQuiz" class="btn-primary">Take Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
